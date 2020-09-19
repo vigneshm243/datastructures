@@ -11,8 +11,4 @@ A website documenting my journey relearning datastructures and algorithms for re
 ## Datastructures and Alogorithms Journey
 Here is a link to the site :  https://vigneshm243.github.io/datastructures/
 
-
-## Site
-
-
 ## [License](https://github.com/vigneshm243/datastructures/blob/master/LICENSE.md)
