@@ -1,5 +1,4 @@
-# ![Relearning DataStructures](https://vigneshm243.github.io/datastructures)
-# Relearning Datastructure
+# Relearning DataStructures(https://vigneshm243.github.io/datastructures)
 <table>
 <tr>
 <td>
