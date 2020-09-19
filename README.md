@@ -1,4 +1,4 @@
-# Relearning DataStructures(https://vigneshm243.github.io/datastructures)
+# Relearning DataStructures
 <table>
 <tr>
 <td>
