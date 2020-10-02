@@ -38,42 +38,44 @@ function Square(props){
 */
 class Board extends React.Component {
     //Construtor with the initiaiztion and setting X as first 
-  constructor(props){
-      super(props);
-      this.state = {
-          //state of the board
-          squares: Array(9).fill(null),
-          //turn of the player
-          xIsNext: true,
-      };
-  }
+    //removing construtor as we move control over to top
+//   constructor(props){
+//       super(props);
+//       this.state = {
+//           //state of the board
+//           squares: Array(9).fill(null),
+//           //turn of the player
+//           xIsNext: true,
+//       };
+//   }
   //render square function call
   renderSquare(i) {
     return <Square 
         //value passed
-        value = {this.state.squares[i]}
+        value = {this.props.squares[i]}
         //onclick handler called
-        onClick = {() => this.handleClick(i)}
+        onClick = {() => this.props.onClick(i)}
     />;
   }
-
-  handleClick(i) {
-    //array of the square state taken
-    const squares = this.state.squares.slice();
-
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
-        squares: squares,
-        xIsNext: !this.state.xIsNext,
-    });
-  }
+// moving to game class
+//   handleClick(i) {
+//     //array of the square state taken
+//     const squares = this.state.squares.slice();
+//     //setting value of square clicked based on state of xIsNext
+//     squares[i] = this.state.xIsNext ? 'X' : 'O';
+//     this.setState({
+//         squares: squares,
+//         xIsNext: !this.state.xIsNext,
+//     });
+//   }
 
   render() {
     const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       <div>
-        <div className="status">{status}</div>
+        
+        {/* <div className="status">{status}</div> */}
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -93,16 +95,44 @@ class Board extends React.Component {
     );
   }
 }
-
+//Top most class of the react app
 class Game extends React.Component {
+  constructor(props){
+      super(props);
+      this.state = {
+          history :[{
+              suares: Array(9).fill(null),
+          }],
+          xIsNext: true,
+      }
+  }
+  handleClick(i) {
+    const history = this.state.history;
+    const current = history[history.length - 1];
+    const squares = current.squares.slice();
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState({
+      history: history.concat([{
+        squares: squares,
+      }]),
+      xIsNext: !this.state.xIsNext,
+    });
+  }
+
   render() {
     return (
       <div className="game">
         <div className="game-board">
-          <Board />
+          <Board 
+            squares = {current.squares}
+            onClick = {(i) => this.handleClick(i)}
+          />
         </div>
         <div className="game-info">
-          <div>{/* status */}</div>
+          <div>{status}</div>
           <ol>{/* TODO */}</ol>
         </div>
       </div>
