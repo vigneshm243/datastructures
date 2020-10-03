@@ -1,12 +1,7 @@
 ## [Relearning DataStructures](https://vigneshm243.github.io/datastructures/)
-<table>
-<tr>
-<td>
-A website documenting my journey relearning datastructures and algorithms for reference of who ever takes upa a similar journey or for myself from the future.
-</td>
-</tr>
-</table>
 
+A website documenting my journey relearning datastructures and algorithms for reference of who ever takes upa a similar journey or for myself from the future.
+[Currently under build]
 
 ## Datastructures and Alogorithms Journey
 Here is a link to the site :  https://vigneshm243.github.io/datastructures/
