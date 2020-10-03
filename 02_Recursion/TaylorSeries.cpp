@@ -10,6 +10,26 @@ double TaylorSeries(int x, int n) {
     if (n == 0){
         return 1;
     }
+    // head recursion call
+    r = TaylorSeries(x, n - 1);
+    //updating power of x
+    p = p * x;
+    //Factorial
+    f = f * n;
+    
+    return (r + p / f);
+}
+
+/*
+Taylor series using recursion to calculate e^x and Horners
+*/
+double TaylorSeriesUsingHorners(int x, int n) {
+    double p = 1, f = 1;
+    double r;
+    //exit conditon
+    if (n == 0){
+        return 1;
+    }
     // hear recursion call
     r = TaylorSeries(x, n - 1);
     //updating power of x
@@ -21,7 +41,7 @@ double TaylorSeries(int x, int n) {
 }
 
 int main(){
-    int x = 4, n = 15;
+    int x = 1, n = 15;
     std::cout << "Taylor series for calulating e^x :" << TaylorSeries(x, n) << endl;
     return 0;
 }
