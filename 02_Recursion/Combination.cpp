@@ -9,11 +9,18 @@ int fact(int n){
     }
     return factorial;
 }
-
+//NCR using formula
 int nCr(int n, int r){
     int num = fact(n);
     int den = fact(r) * fact(n - r);
     return num / den;
+}
+//NCR using Pascal triangle and recursion
+
+int nCrPascal(int n, int r){
+    if (n == r || r == 0)
+        return 1;
+    return nCrPascal(n - 1, r - 1) + nCrPascal(n - 1, r);
 }
 
 int main(){
@@ -23,6 +30,6 @@ int main(){
     std::cout << "Enter value for R" << endl;
     std::cin >> r;
     std::cout << "NCR" << endl;
-    std::cout << nCr(n, r);
+    std::cout << nCrPascal(n, r);
     return 0;
 }
