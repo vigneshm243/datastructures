@@ -53,7 +53,7 @@ int bottomUpFib(int n){
     return n;
   }
   int twoBehind = 0;
-  int oneBehind = 0;
+  int oneBehind = 1;
   int fib = 0;
   
   for(int i = 1; i < n; i++){
@@ -71,6 +71,6 @@ int main(){
     for (int i = 0; i < n; i++){
         F[i] = 0;
     }
-    std::cout << mfib(n) << endl;
+    std::cout << bottomUpFib(n) << endl;
     return 0;
 }
